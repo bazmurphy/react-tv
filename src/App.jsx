@@ -12,7 +12,7 @@ const App = () => {
   console.log(`App ran`);
 
   const showsURL = `https://api.tvmaze.com/shows`;
-  const { loading: showLoading, data : showData, error: showError } = useFetch(showsURL);
+  const { loading: showsLoading, data : showsData, error: showsError } = useFetch(showsURL);
 
   // const [localCache, setLocalCache] = useState(null);
 
@@ -40,8 +40,8 @@ const App = () => {
   return (
     <div className="app-container">
       <Header />
-      {showData && <Functionality showData={showData} />}
-      {showData && <Main showData={showData} />}
+      {showsData && <Functionality showsData={showsData} />}
+      {showsData && <Main showsData={showsData} />}
       <Footer />
     </div>
   );

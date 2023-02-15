@@ -1,16 +1,20 @@
-const Functionality = ({showData}) => {
+const Functionality = ({showsData}) => {
   return (
     <div className="functionality-container">
       <span>Functionality</span>
       <select 
-        name="" 
+        name=""
         id=""
         onSelect={null}
       >
         <option value="">Select A Show...</option>
-        {showData.map(show => {
+        {showsData.map(show => {
           return (
-            <option key={show.id} value="">{show.name}</option>
+            <option 
+              key={show.id} 
+              value={show.id}>
+                {show.name}
+            </option>
           )
         })}
       </select>
