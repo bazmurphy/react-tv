@@ -32,10 +32,10 @@ const App = () => {
   // const episodesURL = `https://api.tvmaze.com/shows/${showId}/episodes`;
   // const { loading: episodesLoading, data: episodesData, error: epsiodesError } = useFetch(episodesURL);
 
-  useEffect(() => {
-    console.log(`useEffect ran`);
-    // setLocalCache(showData);
-  }, []);
+  // useEffect(() => {
+  //   console.log(`useEffect ran`);
+  //   // setLocalCache(showData);
+  // }, []);
 
   return (
     <div className="app-container">
