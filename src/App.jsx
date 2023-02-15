@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { useEffect, useState } from 'react';
-import useFetch from "./customHook/useFetch";
+import useFetch from "./customHooks/useFetch";
 import Header from './components/Header';
 import Functionality from './components/Functionality';
 import Main from './components/Main';
