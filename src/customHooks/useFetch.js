@@ -33,6 +33,7 @@ const useFetch = (url) => {
       })();
     }, [url]);
   
+  console.log(`useFetch: loading`, loading, `data`, data, `error`, error);
   return { loading, data, error };
 };
 

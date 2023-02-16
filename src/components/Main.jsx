@@ -1,16 +1,14 @@
-import Show from "./Show";
+import ShowsSelect from './ShowsSelect';
+import ShowsList from './ShowsList'; 
 
-const Main = ({showsData}) => {
-
+const Main = () => {
+  console.log(`Main ran`);
+  
   return (
     <main className="main-container">
-    {showsData && showsData.map((show) => {
-      return (
-        <Show key={show.id} show={show} />
-      )
-    })
-    }
-  </main>
+      <ShowsSelect />
+      <ShowsList/>
+    </main>
   )
 }
 
