@@ -1,8 +1,9 @@
 const Header = () => {
+  console.log(`Header ran`);
   
   return (
     <header className="header-container">
-      <span>Header</span>
+      <p>Header Container</p>
     </header>
   )
 }

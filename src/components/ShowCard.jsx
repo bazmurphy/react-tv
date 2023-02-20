@@ -1,6 +1,9 @@
 const ShowCard = ({show}) => {
+  console.log(`ShowCard ran`);
+
   return (
     <div className="show-card-container">
+      <p>Show Card Container</p>
       <div className="show-card-id">id: {show.id}</div>
       <div>name: {show.name}</div>
       <div className="show-card-image-container">

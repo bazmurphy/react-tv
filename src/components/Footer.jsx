@@ -1,8 +1,9 @@
 const Footer = () => {
+  console.log(`Footer ran`);
 
   return (
     <footer className="footer-container">
-      <span>Footer</span>
+      <p>Footer Container</p>
     </footer>
   )
 }

@@ -1,27 +1,29 @@
 import { useContext } from "react";
 import { ShowsContext } from "../context/ShowsProvider";
+import dateStringToEpoch from "../helperFunctions/dateStringToEpoch";
 import ShowCard from "./ShowCard";
 
 const ShowsList = () => {
   console.log(`ShowsList ran`);
-
-  const { showsLoading, showsData, showsError } = useContext(ShowsContext);
-  console.log(`ShowsList useContext values:`, `showsLoading`, showsLoading, `showsData`, showsData, `showsError`, showsError);
+  
+  const { showsData } = useContext(ShowsContext);
+  console.log(`ShowsList showsData:`, showsData);
     
   return (
-    <>
-      {showsLoading && 
+    <div className="shows-list-container">
+      <p>Shows List Container</p>
+      {/* {showsLoading && 
         <div className="shows-list-loading-container">Shows Loading...</div>
-      }
-      <div className="shows-list-container">
+      } */}
         {showsData && 
-          showsData.map((show) => {
-            return (
-              <ShowCard key={show.id} show={show} />
-            )
+          showsData
+            .sort((a, b) => dateStringToEpoch(b.premiered) - dateStringToEpoch(a.premiered))
+            .map((show) => {
+              return (
+                <ShowCard key={show.id} show={show} />
+              )
         })}
-      </div>
-    </>
+    </div>
   );
 };
 
