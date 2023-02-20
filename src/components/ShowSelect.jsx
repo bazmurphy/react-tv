@@ -8,7 +8,7 @@ const ShowSelect = () => {
   // console.log(`ShowsList useContext values:`, `showsData`, showsData);
 
   const { showsData } = useContext(ShowsContext);
-  // console.log(`ShowsSelect showsData`, showsData);
+  console.log(`ShowsSelect showsData`, showsData);
  
   return (
     <div className="show-select-container">
