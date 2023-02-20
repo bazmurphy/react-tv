@@ -25,15 +25,16 @@ const ShowSelect = () => {
         }}
       >
         <option value="0">Select A Show...</option>
-        {showsData && showsData.map(show => {
-          return (
-            <option 
-              key={show.id} 
-              value={show.id}
-            >
-              {show.name}
-            </option>
-          )
+        {showsData && 
+          showsData.map(show => {
+            return (
+              <option 
+                key={show.id} 
+                value={show.id}
+              >
+                {show.name}
+              </option>
+            )
         })}
       </select>
       <button
