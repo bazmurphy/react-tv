@@ -3,7 +3,8 @@ const Header = () => {
   
   return (
     <header className="header-container">
-      <p>Header Container</p>
+      <p className="component-name">Header.jsx</p>
+      <h1>TV React Project</h1>
     </header>
   )
 }

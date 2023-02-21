@@ -3,7 +3,7 @@ const Footer = () => {
 
   return (
     <footer className="footer-container">
-      <p>Footer Container</p>
+      <p className="component-name">Footer.jsx</p>
     </footer>
   )
 }

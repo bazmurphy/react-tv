@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import { ShowsProvider } from './context/ShowsProvider';
+import { BazProvider } from './context/BazProvider';
 import './App.css';
 
 const App = () => {
@@ -11,11 +11,11 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <ShowsProvider> 
         <Header />
-        <Main />
+        <BazProvider> 
+          <Main />
+        </BazProvider>
         <Footer />
-      </ShowsProvider>
     </div>
   );
 };

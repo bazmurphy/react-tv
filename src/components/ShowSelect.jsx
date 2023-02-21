@@ -1,47 +1,50 @@
 import { useContext } from "react";
-import { ShowsContext } from "../context/ShowsProvider";
+import { BazContext } from "../context/BazProvider";
 
 const ShowSelect = () => {
   console.log(`ShowsSelect ran`);
 
-  // const { showsData, isShowSelected, setIsShowSelected, selectedShowId, setSelectedShowId  } = useContext(ShowsContext);
-  // console.log(`ShowsList useContext values:`, `showsData`, showsData);
-
-  const { showsData } = useContext(ShowsContext);
-  console.log(`ShowsSelect showsData`, showsData);
+  const { state, dispatch } = useContext(BazContext);
+  console.log(`ShowsSelect state.showsData`, state.showsData);
  
   return (
     <div className="show-select-container">
-      <p>Show Select Container</p>
+      <p className="component-name">ShowSelect.jsx</p>
       <select 
         name=""
-        id=""
+        id="" 
         onChange={(event) => {
           console.log(`ShowSelect onChange ran`);
-          console.log(`event`, event)
-          // setIsShowSelected(true);
-          // setSelectedShowId(event.target.value);
-          // console.log(`selectedShowId`, selectedShowId);
+          const showId = event.target.value;
+          console.log(`ShowSelect onChange showId: ${showId}`);
+          if (showId === null) {
+            dispatch({type: "clearShowId" });
+            return;
+          }
+          dispatch({type: "setShowId", payload: {showId: showId}});
+          // showId ? dispatch({type: "clearShowId" }) : dispatch({type: "setShowId", payload: {showId: showId}});
         }}
       >
-        <option value="0">Select A Show...</option>
-        {showsData && 
-          showsData.map(show => {
-            return (
-              <option 
-                key={show.id} 
-                value={show.id}
-              >
-                {show.name}
-              </option>
-            )
-        })}
+        <option value={null}>Select A Show...</option>
+        {state.showsData && 
+          [...state.showsData]
+            .sort((show1, show2) => show1.name.localeCompare(show2.name)) // sort Alphabetically
+            .map(show => {
+              return (
+                <option 
+                  key={show.id} 
+                  value={show.id}
+                >
+                  {show.name}
+                </option>
+              )
+            })
+        }
       </select>
       <button
         onClick={() => {
-          // setIsShowSelected(false);
-          // setSelectedShowId(null);
-          // console.log(`selectedShowId`, selectedShowId);
+          dispatch({type: "clearShowId" });
+          // and need to change Season Select to default option
         }}
         >Reset Show Selection</button>
     </div>

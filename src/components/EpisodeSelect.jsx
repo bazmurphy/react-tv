@@ -1,39 +1,47 @@
 import { useContext } from "react";
-import { ShowsContext } from "../context/ShowsProvider";
+import { BazContext } from "../context/BazProvider";
 
 const EpisodeSelect = () => {
   console.log(`EpisodeSelect ran`);
 
-  const { episodesData } = useContext(ShowsContext);
-  console.log(`EpisodeSelect episodesData:`, episodesData);
+  const { state, dispatch } = useContext(BazContext);
+  console.log(`EpisodeSelect state.episodesData:`, state.episodesData);
 
   return (
     <div className="episode-select-container">
-      <p>Episode Select Container</p>
+      <p className="component-name">EpisodeSelect.jsx</p>
       <select 
         name=""
         id=""
         onChange={(event) => {
           console.log(`EpisodeSelect onChange ran`);
-          console.log(`event`, event);
-          // to do
+          const episodeId = event.target.value;
+          console.log(`EpisodeSelect onChange episodeId`, episodeId);
+          if (episodeId === null) {
+            dispatch({type: "clearEpisodeId" });
+            return;
+          }
+          dispatch({type: "setEpisodeId", payload: { episodeId: episodeId }});
         }}
       >
-        <option value="0">Select A Show...</option>
-        {episodesData && episodesData.map(episode => {
-          return (
-            <option 
-              key={episode.id} 
-              value={episode.id}
-            >
-              {episode.name}
-            </option>
-          )
-        })}
+        <option value="0">Select An Episode...</option>
+        {state.episodesData && 
+          state.episodesData.map(episode => {
+            return (
+              <option 
+                key={episode.id}
+                value={episode.id}
+              >
+                Episode {episode.number} - {episode.name}
+              </option>
+            )
+          })
+        }
       </select>
       <button
         onClick={() => {
-          // to do
+          dispatch({type: "clearEpisodeId" });
+          // and need to change Episode Select to default option
         }}
         >Reset Episode Selection</button>
     </div>

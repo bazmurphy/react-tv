@@ -55,50 +55,11 @@
   border: 1px solid hsl(0, 0%, 15%);
 }
 
-.shows-list-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  row-gap: 10px;
-  column-gap: 10px;
-  padding: 10px;
-  background-color: hsl(160, 50%, 60%);
-  border: 1px solid hsl(0, 0%, 15%);
-}
-
-.show-card-container {
-  display: grid;
-  align-content: start;
-  justify-content: center;
-  justify-items: center;
-  row-gap: 5px;
-  padding: 5px;
-  background-color: hsl(160, 50%, 80%);
-  border: 1px solid hsl(0, 0%, 15%);
-  font-size: 12px;
-}
-
-.show-card-container > * {
-  border: 1px dotted grey;
-  padding: 5px;
-}
-
-.show-card-image-container {
-
-}
-
-.show-card-image {
-  display: block;
-  border-radius: 10px;
-}
-
-.show-card-genres {
-  display: flex;
-  gap: 5px;
-}
-
+.shows-list-container,
 .seasons-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  /* ^this is janky, need to fix it */
   row-gap: 10px;
   column-gap: 10px;
   padding: 10px;
@@ -108,7 +69,7 @@
 
 .episodes-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 10px;
   column-gap: 10px;
   padding: 10px;
@@ -116,11 +77,84 @@
   border: 1px solid hsl(0, 0%, 15%);
 }
 
+.show-card-container,
+.season-card-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  background-color: hsl(160, 50%, 80%);
+  border: 1px solid hsl(0, 0%, 15%);
+  padding: 10px;
+  font-size: 13px;
+}
 
+.episode-card-container {
+  display: grid;
+  background-color: hsl(160, 50%, 80%);
+  border: 1px solid hsl(0, 0%, 15%);
+  padding: 10px;
+  font-size: 13px;
+}
+
+.show-card-copy-container,
+.season-card-copy-container,
+.episode-card-copy-container {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  row-gap: 10px;
+}
+
+.show-card-image-container,
+.season-card-image-container,
+.episode-card-image-container {
+
+}
+
+.show-card-image,
+.season-card-image,
+.episode-card-image {
+  display: block;
+  border-radius: 10px;
+}
+
+.show-card-genres {
+  display: flex;
+  gap: 5px;
+}
+
+.show-card-name,
+.season-card-season-number,
+.episode-card-season-number-episode-number {
+  font-weight: bold;
+}
+
+.show-card-id,
+.season-card-id,
+.episode-card-id {
+  color: hsl(120, 100%, 15%);
+  font-weight: 600;
+}
 
 .footer-container {
   padding: 10px;
   background-color: hsl(160, 50%, 30%);
   border: 1px solid hsl(0, 0%, 15%);
   font-weight: 600;
+}
+
+.component-name {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: hsl(240, 100%, 60%);
+}
+
+select {
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+  cursor: pointer; 
 }

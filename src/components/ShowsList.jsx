@@ -1,28 +1,27 @@
 import { useContext } from "react";
-import { ShowsContext } from "../context/ShowsProvider";
-// import dateStringToEpoch from "../helperFunctions/dateStringToEpoch";
+import { BazContext } from "../context/BazProvider";
 import ShowCard from "./ShowCard";
 
 const ShowsList = () => {
   console.log(`ShowsList ran`);
   
-  const { showsData } = useContext(ShowsContext);
-  console.log(`ShowsList showsData:`, showsData);
-    
+  const { state, dispatch } = useContext(BazContext);
+  console.log(`ShowsList state.showsData:`, state.showsData);
+  
   return (
-    <div className="shows-list-container">
-      <p>Shows List Container</p>
-      {/* {showsLoading && 
-        <div className="shows-list-loading-container">Shows Loading...</div>
-      } */}
-        {showsData && 
-          showsData
+    <>
+      <p className="component-name">ShowsList.jsx</p>
+      <div className="shows-list-container">
+        {[...state.showsData]
+            .sort((show1,show2) => show2.rating.average - show1.rating.average) // Sort By Highest Rating
             .map((show) => {
               return (
                 <ShowCard key={show.id} show={show} />
               )
-        })}
-    </div>
+          })
+        }
+      </div>
+    </>
   );
 };
 
