@@ -67,9 +67,9 @@ export const BazProvider = ( {children} ) => {
   useEffect(() => {
     console.log(`useEffect 1 ran - /shows`);
     console.log("useEffect 1 state:", state);
-    if (!state.showsData.length) {
-    const showsURL = `https://api.tvmaze.com/shows`;
-    fetchAndUpdate(showsURL, (data) => dispatch({type: 'setAllShows', payload: { showsData: data }}));
+    if (!!state.showsData) {
+      const showsURL = `https://api.tvmaze.com/shows`;
+      fetchAndUpdate(showsURL, (data) => dispatch({type: 'setAllShows', payload: { showsData: data }}));
     }
   }, []);
 
