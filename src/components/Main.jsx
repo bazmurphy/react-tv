@@ -23,7 +23,7 @@ const Main = () => {
       <div>
         {/* I NEED TO FIGURE OUT THE CONDITIONAL RENDERING IN A WAY THAT MAKES SENSE */}
         {/* <ShowsList /> */}
-        {(state.showsData.length && !state.isShowSelected) && <ShowsList />}
+        {(state.showsData && !state.isShowSelected) && <ShowsList />}
         {/* <SeasonsList /> */}
         {(state.seasonsData && !state.isSeasonSelected) && <SeasonsList />}
         {/* {<EpisodesList />} */}
